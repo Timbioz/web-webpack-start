@@ -110,6 +110,30 @@ module.exports = {
                         options: {}
                     }
                 ]
+            },
+            {
+                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 50000,
+                            mimetype: "application/font-woff",
+                            name: "fonts/[name].[ext]"
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(ttf|eot)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "fonts/[name].[ext]"
+                        }
+                    }
+                ]
             }
         ]
     },
